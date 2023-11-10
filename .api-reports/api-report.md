@@ -1256,6 +1256,29 @@ export interface InMemoryCacheConfig extends ApolloReducerConfig {
 }
 
 // @public (undocumented)
+export type InteractiveQueryHookFetchPolicy = Extract<WatchQueryFetchPolicy, "cache-first" | "network-only" | "no-cache" | "cache-and-network">;
+
+// @public (undocumented)
+export interface InteractiveQueryHookOptions {
+    // (undocumented)
+    canonizeResults?: boolean;
+    // (undocumented)
+    client?: ApolloClient<any>;
+    // (undocumented)
+    context?: DefaultContext;
+    // (undocumented)
+    errorPolicy?: ErrorPolicy;
+    // (undocumented)
+    fetchPolicy?: InteractiveQueryHookFetchPolicy;
+    // (undocumented)
+    queryKey?: string | number | any[];
+    // (undocumented)
+    refetchWritePolicy?: RefetchWritePolicy;
+    // (undocumented)
+    returnPartialData?: boolean;
+}
+
+// @public (undocumented)
 class InternalQueryReference<TData = unknown> {
     // Warning: (ae-forgotten-export) The symbol "InternalQueryReferenceOptions" needs to be exported by the entry point index.d.ts
     constructor(observable: ObservableQuery<TData>, options: InternalQueryReferenceOptions);
@@ -2340,7 +2363,7 @@ export interface RefetchQueriesResult<TResult> extends Promise<RefetchQueriesPro
 export type RefetchQueryDescriptor = string | DocumentNode;
 
 // @public (undocumented)
-type RefetchWritePolicy = "merge" | "overwrite";
+export type RefetchWritePolicy = "merge" | "overwrite";
 
 // @public (undocumented)
 class RenderPromises {
@@ -2837,8 +2860,6 @@ export interface WatchQueryOptions<TVariables extends OperationVariables = Opera
     //
     // (undocumented)
     nextFetchPolicy?: WatchQueryFetchPolicy | ((this: WatchQueryOptions<TVariables, TData>, currentFetchPolicy: WatchQueryFetchPolicy, context: NextFetchPolicyContext<TData, TVariables>) => WatchQueryFetchPolicy);
-    // Warning: (ae-forgotten-export) The symbol "RefetchWritePolicy" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     refetchWritePolicy?: RefetchWritePolicy;
 }
