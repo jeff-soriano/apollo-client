@@ -1,5 +1,19 @@
 # @apollo/client
 
+## 3.9.0-alpha.5
+
+### Patch Changes
+
+- [#11200](https://github.com/apollographql/apollo-client/pull/11200) [`ae5091a21`](https://github.com/apollographql/apollo-client/commit/ae5091a21f0feff1486503071ea8dc002cf1be41) Thanks [@jerelmiller](https://github.com/jerelmiller)! - Enable `strict` in tsconfig for the entire project.
+
+- [#11344](https://github.com/apollographql/apollo-client/pull/11344) [`bd2667619`](https://github.com/apollographql/apollo-client/commit/bd2667619700139af32a45364794d11f845ab6cf) Thanks [@phryneas](https://github.com/phryneas)! - Add a `resetCache` method to `DocumentTransform` and hook `InMemoryCache.addTypenameTransform` up to `InMemoryCache.gc`
+
+- [#11332](https://github.com/apollographql/apollo-client/pull/11332) [`291aea56b`](https://github.com/apollographql/apollo-client/commit/291aea56bfaed3987a98be7fe4e6160114b62d2d) Thanks [@asvishnyakov](https://github.com/asvishnyakov)! - Add missed reexports of MutationFetchPolicy and RefetchWritePolicy to @apollo/client/core
+
+- [#11355](https://github.com/apollographql/apollo-client/pull/11355) [`7d8e18493`](https://github.com/apollographql/apollo-client/commit/7d8e18493cd13134726c6643cbf0fadb08be2d37) Thanks [@phryneas](https://github.com/phryneas)! - InMemoryCache.gc now also triggers FragmentRegistry.resetCaches (if there is a FragmentRegistry)
+
+- [#10931](https://github.com/apollographql/apollo-client/pull/10931) [`e5acf910e`](https://github.com/apollographql/apollo-client/commit/e5acf910e39752b453540b6751046d1c19b66350) Thanks [@phryneas](https://github.com/phryneas)! - `useMutation`: also reset internal state on reset
+
 ## 3.9.0-alpha.4
 
 ### Minor Changes
@@ -117,6 +131,7 @@
 - [#6701](https://github.com/apollographql/apollo-client/pull/6701) [`8d2b4e107`](https://github.com/apollographql/apollo-client/commit/8d2b4e107d7c21563894ced3a65d631183b58fd9) Thanks [@prowe](https://github.com/prowe)! - Ability to dynamically match mocks
 
   Adds support for a new property `MockedResponse.variableMatcher`: a predicate function that accepts a `variables` param. If `true`, the `variables` will be passed into the `ResultFunction` to help dynamically build a response.
+
 ## 3.8.7
 
 ### Patch Changes
